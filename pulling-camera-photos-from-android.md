@@ -1,3 +1,5 @@
+# Pulling camera photos from Android
+
 List all photos from 2017:
 
     adb shell 'find /storage/emulated/0/DCIM/Camera | grep -E "/[A-Z]+_201701"'
