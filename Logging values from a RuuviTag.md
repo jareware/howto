@@ -51,3 +51,37 @@ Or to prefix each line with a timestamp (make sure you've `apt-get install moreu
 ```
 $ read-lines-from-ruuvi | ts >> my-tags.log
 ```
+
+If you happen to have an InfluxDB instance running, the following script can be used to send [Line Protocol](https://docs.influxdata.com/influxdb/v1.4/write_protocols/line_protocol_tutorial/) data to it from stdin:
+
+```sh
+#!/bin/bash
+
+# SEE: https://docs.influxdata.com/influxdb/v1.4/write_protocols/line_protocol_tutorial/
+
+HOST=https://db.example.com
+DB=ruuvi
+USER=agent
+PASS=SECRET
+
+while read line
+do
+  echo "$(basename "$0"): $line"
+  curl -XPOST --user "$USER:$PASS" --silent --show-error "$HOST/write?db=$DB" --data-binary "$line"
+done < "${1:-/dev/stdin}"
+```
+
+Then, a simple:
+
+```
+$ read-lines-from-ruuvi | send-lines-to-influx
+```
+
+will keep reading the RuuviTag data and sending it to InfluxDB.
+
+Note that the same `send-lines-to-influx` utility can be used to send arbitrary Line Protocol formatted data to your InfluxDB, if you happen to have other interesting stats to collect on the same host:
+
+```
+$ echo random_values value=$RANDOM | send-lines-to-influx
+send-lines-to-influx: random_values value=32542
+```
