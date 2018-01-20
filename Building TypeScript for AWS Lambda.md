@@ -90,7 +90,8 @@ The downside is that — depending on how much stuff you have in your `node_modu
 
 Anyway, to build & compress:
 
-    $ ./node_modules/.bin/tsc -p . && zip -r lambda.zip .
+    $ ./node_modules/.bin/tsc -p .
+    $ zip -r lambda.zip .
 
 The same as above, the resulting `lambda.zip` can be either uploaded via the GUI, or the CLI.
 
