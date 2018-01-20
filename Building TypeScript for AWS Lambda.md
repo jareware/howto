@@ -1,5 +1,7 @@
 # Building TypeScript for AWS Lambda
 
+There's two main methods for preparing TypeScript to be ran on [AWS Lambda](https://aws.amazon.com/lambda/).
+
 ## Method 1: Build to single file
 
 You'll need the following dependencies:
