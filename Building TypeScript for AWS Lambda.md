@@ -2,6 +2,8 @@
 
 There's two main methods for preparing TypeScript to be ran on [AWS Lambda](https://aws.amazon.com/lambda/).
 
+This guide assumes you've already created the function, either via CLI or GUI.
+
 ## Method 1: Build to single file
 
 You'll need the following dependencies:
@@ -39,14 +41,29 @@ To build this to plain-old JS:
 
 Note the initial `var lambda = exports`; it allows the bundler to create an isolated function scope for all modules (including the entrypoint), while still allowing the Lambda runtime to call our entrypoint.
 
-The resulting `index.js` is ready for copy-paste (or upload via CLI) to AWS Lambda.
+The resulting `index.js` is ready for copy-paste to AWS Lambda. You can also upload it via the CLI:
+
+    $ brew install awscli
+
+If you don't have a global config for the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html), you can easily set up a temporary one:
+
+```
+$ read AWS_ACCESS_KEY_ID # type in your key ID without it going to your shell history
+$ read -s AWS_SECRET_ACCESS_KEY # same as above, also hiding any input
+$ AWS_DEFAULT_REGION=eu-central-1 # make sure this is the region you want
+$ env | grep AWS # to verify your config
+```
+
+Then, compress & upload:
+
+    $ zip lambda.zip index.js
+    $ aws lambda update-function-code --function-name YourFunctionName --zip-file fileb://lambda.zip
 
 ## Method 2: Build individual files
 
 You'll need the following dependencies:
 
     $ npm install --save typescript
-    $ brew install awscli
 
 This has the upside of being simpler, as our example `index.ts` no longer needs any Clever Hacks :tm: for attaching `handler` to the global `exports` of the entrypoint module:
 
@@ -75,18 +92,7 @@ Anyway, to build & compress:
 
     $ ./node_modules/.bin/tsc -p . && zip -r lambda.zip .
 
-The resulting `lambda.zip` can be either uploaded via the GUI, or the CLI; if you don't have a global config for the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html), you can easily set up a temporary one:
-
-```
-$ read AWS_ACCESS_KEY_ID # type in your key ID without it going to your shell history
-$ read -s AWS_SECRET_ACCESS_KEY # same as above, also hiding any input
-$ AWS_DEFAULT_REGION=eu-central-1
-$ env | grep AWS # to verify
-```
-
-Finally, update the function:
-
-    $ aws lambda update-function-code --function-name YourFunctionName --zip-file fileb://lambda.zip
+The same as above, the resulting `lambda.zip` can be either uploaded via the GUI, or the CLI.
 
 ## Reference TS config
 
