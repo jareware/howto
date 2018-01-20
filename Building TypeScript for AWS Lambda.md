@@ -1,37 +1,6 @@
 # Building TypeScript for AWS Lambda
 
-This assumes the following `tsconfig.json`:
-
-```js
-{
-  "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "allowJs": false,
-    "downlevelIteration": true,
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "types": [
-      "node"
-    ],
-    "lib": [
-      "es2015",
-      "dom" // for Blob et al (see https://github.com/Microsoft/TypeScript/issues/14897)
-    ]
-  },
-  "include": [
-    "**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
-}
-```
-
-At the time of writing, 6.10 is the most recent node runtime supported by Lambda. Eventually other `target` values can make more sense.
-
-## Method 1: Compile to single file
+## Method 1: Build to single file
 
 You'll need the following dependencies:
 
@@ -98,7 +67,7 @@ exports.handler = (_event: any, _context: any, callback: any) => {
 
 Your stack traces will be more straightforward, since modules (both yours and npm ones) stay in their own files. Also, any non-JS assets you may have will be included just as everything else.
 
-The downside is that -- depending on how much stuff you have in your `node_modules` -- the resulting function can easily grow quite large. As mentioned before, [smaller builds are better](https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html#function-code). You can exclude unnecessary files by playing with the `zip` command, but it can get unwieldy fast.
+The downside is that — depending on how much stuff you have in your `node_modules` — the resulting bundle can easily grow quite large. As mentioned before, [smaller builds are better](https://docs.aws.amazon.com/lambda/latest/dg/best-practices.html#function-code). You can exclude unnecessary files by playing with the `zip` command, but it can get unwieldy fast.
 
 Anyway, to build & compress:
 
@@ -116,3 +85,36 @@ $ env | grep AWS # to verify
 Finally, update the function:
 
     $ aws lambda update-function-code --function-name YourFunctionName --zip-file fileb://lambda.zip
+
+## Reference TS config
+
+This assumes the following `tsconfig.json`:
+
+```js
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "allowJs": false,
+    "downlevelIteration": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "types": [
+      "node"
+    ],
+    "lib": [
+      "es2015",
+      "dom" // for Blob et al (see https://github.com/Microsoft/TypeScript/issues/14897)
+    ]
+  },
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
+```
+
+At the time of writing, 6.10 is the most recent node runtime supported by Lambda. Eventually other `target` values can make more sense.
