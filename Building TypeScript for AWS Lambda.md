@@ -95,6 +95,10 @@ Anyway, to build & compress:
 
 The same as above, the resulting `lambda.zip` can be either uploaded via the GUI, or the CLI.
 
+## Type definitions for Lambda
+
+If you want more type precision for where the rubber meets the road (i.e. Lambda handlers themselves), there's a [types package for that](https://www.npmjs.com/package/@types/aws-lambda).
+
 ## Reference TS config
 
 This assumes the following `tsconfig.json`:
