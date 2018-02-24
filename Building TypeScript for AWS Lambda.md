@@ -48,9 +48,9 @@ The resulting `index.js` is ready for copy-paste to AWS Lambda. You can also upl
 If you don't have a global config for the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html), you can easily set up a temporary one:
 
 ```
-$ read AWS_ACCESS_KEY_ID # type in your key ID without it going to your shell history
-$ read -s AWS_SECRET_ACCESS_KEY # same as above, also hiding any input
-$ AWS_DEFAULT_REGION=eu-central-1 # make sure this is the region you want
+$ read AWS_ACCESS_KEY_ID && export AWS_ACCESS_KEY_ID # type in your key ID without it going to your shell history
+$ read -s AWS_SECRET_ACCESS_KEY && export AWS_SECRET_ACCESS_KEY # same as above, also hiding any input
+$ export AWS_DEFAULT_REGION=eu-central-1 # make sure this is the region you want
 $ env | grep AWS # to verify your config
 ```
 
