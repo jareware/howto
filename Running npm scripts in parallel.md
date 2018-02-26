@@ -48,3 +48,7 @@ The above can be made run in parallel by `npm install --save parallel` and:
 Running `npm run precommit` runs each step **in parallel**, and exits non-zero if any step fails.
 
 The amount of parallelization default to the number of CPU cores available. There's [other handy options](https://github.com/flesler/parallel#options), too.
+
+## See also
+
+If you're looking for a higher-end solution, with output prefixing and everything, look no further than [kimmobrunfeldt/concurrently](https://github.com/kimmobrunfeldt/concurrently).
