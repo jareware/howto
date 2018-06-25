@@ -1,5 +1,7 @@
 # Logging values from a RuuviTag
 
+## Reading values
+
 To continuously read values from a [RuuviTag](https://tag.ruuvi.com/), place the following script onto your PATH as `read-lines-from-ruuvi`:
 
 ```py
@@ -40,6 +42,8 @@ ruuvitag,mac=FC:E4:33:8F:C7:24 pressure=1009.63,acceleration=1028.0155640845132,
 ruuvitag,mac=FF:A7:6F:D4:A1:B0 pressure=1009.61,acceleration=1024.9058493344644,acceleration_y=-40,temperature=24.91,battery=3175,acceleration_x=-16,humidity=28.0,acceleration_z=1024
 ```
 
+## Writing values
+
 To keep a logfile of the values instead of sending them to stdout, you can simply:
 
 ```
@@ -51,6 +55,8 @@ Or to prefix each line with a timestamp (make sure you've `apt-get install moreu
 ```
 $ read-lines-from-ruuvi | ts >> my-tags.log
 ```
+
+## Writing values to InfluxDB
 
 If you happen to have an InfluxDB instance running, the following script can be used to send [Line Protocol](https://docs.influxdata.com/influxdb/v1.4/write_protocols/line_protocol_tutorial/) data to it from stdin:
 
