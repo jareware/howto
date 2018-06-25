@@ -2,7 +2,7 @@
 
 ## Reading values
 
-To continuously read values from a [RuuviTag](https://tag.ruuvi.com/), place the following script onto your PATH as `read-lines-from-ruuvi`:
+To continuously read values from a [RuuviTag](https://tag.ruuvi.com/), place the following script onto your PATH (for example as `~/bin/read-lines-from-ruuvi`):
 
 ```py
 #!/usr/bin/python3
@@ -58,7 +58,7 @@ $ read-lines-from-ruuvi | ts >> my-tags.log
 
 ## Writing values to InfluxDB
 
-If you happen to have an InfluxDB instance running, the following script can be used to send [Line Protocol](https://docs.influxdata.com/influxdb/v1.4/write_protocols/line_protocol_tutorial/) data to it from stdin:
+If you happen to have an InfluxDB instance running, the following script can be used to send [Line Protocol](https://docs.influxdata.com/influxdb/v1.4/write_protocols/line_protocol_tutorial/) data to it from stdin (save as e.g. `~/bin/send-lines-to-influx`):
 
 ```sh
 #!/bin/bash
@@ -91,3 +91,59 @@ Note that the same `send-lines-to-influx` utility can be used to send arbitrary 
 $ echo random_values value=$RANDOM | send-lines-to-influx
 send-lines-to-influx: random_values value=32542
 ```
+
+## Surviving reboots
+
+To make sure a random reboot of the Pi won't stop data collection, create a script (e.g. `~/bin/ruuvi2influx`), with:
+
+```sh
+#!/bin/bash
+
+PATH="/home/pi/bin:$PATH"
+
+read-lines-from-ruuvi | send-lines-to-influx
+```
+
+On Raspbian (and similar flavors), to make sure this command runs after each boot, add the following to your `/etc/rc.local`:
+
+```sh
+# Drop privileges and start collecting data
+sudo -u pi /home/pi/bin/ruuvi2influx &
+```
+
+## Automating reboots
+
+If you leave a Pi (especially a tiny one like the Zero) running for long enough, it may grind to a halt on its own (e.g. by swapping). To reboot once per week, `sudo crontab -e` and:
+
+```
+# ┌───────────── minute (0 - 59)
+# │ ┌───────────── hour (0 - 23)
+# │ │ ┌───────────── day of month (1 - 31)
+# │ │ │ ┌───────────── month (1 - 12)
+# │ │ │ │ ┌───────────── day of week (0 - 6) (Sunday to Saturday;
+# │ │ │ │ │                                       7 is also Sunday on some systems)
+# │ │ │ │ │
+# │ │ │ │ │
+# * * * * *  command to execute
+  0 3 * * 0  /sbin/shutdown -r now
+```
+
+## Tagging values
+
+By default, the `read-lines-from-ruuvi` script only tags the measurements with the MAC of the RuuviTag. To turn that into more useful tags, you can change the `ruuvi2influx` script to something like:
+
+```sh
+#!/bin/bash
+
+PATH="/home/pi/bin:$PATH"
+
+read-lines-from-ruuvi \
+  | sed -u 's/\(CD.D3.*\) /\1,location=Balcony /g' \
+  | sed -u 's/\(E2.F9.*\) /\1,location=Bathroom /g' \
+  | sed -u 's/\(FC.C4.*\) /\1,location=Fridge /g' \
+  | send-lines-to-influx
+```
+
+You can use more (or less) of the MAC length to identify your tags, as long as they don't collide.
+
+Remember to update the script if you relocate the tags. :)
