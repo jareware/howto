@@ -108,7 +108,7 @@ On Raspbian (and similar flavors), to make sure this command runs after each boo
 
 ```sh
 # Drop privileges and start collecting data
-sudo -u pi /home/pi/bin/ruuvi2influx &
+sudo -u pi /home/pi/bin/ruuvi2influx # can't detach with "&" due to https://github.com/ttu/ruuvitag-sensor/issues/32
 ```
 
 ## Automating reboots
