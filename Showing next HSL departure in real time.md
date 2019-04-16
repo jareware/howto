@@ -20,6 +20,10 @@ Nothing too magical here, we just need an element to update with the next depart
 </html>
 ```
 
+So something like this:
+
+![image](https://user-images.githubusercontent.com/560055/56206681-99c7b700-6055-11e9-8a9b-b5d043088e87.png)
+
 ## JS
 
 Put this into `hsl-stop-next-departure.js`:
@@ -149,6 +153,8 @@ Personally, I run this as a panel on Grafana, with the [ajax/iframe panel](https
   rel="stylesheet"
 />
 ```
+
+![image](https://user-images.githubusercontent.com/560055/56206485-30e03f00-6055-11e9-94c9-cdb9d07eb5c7.png)
 
 ## Training wheels for ancient browsers
 
