@@ -9,51 +9,42 @@ I do, however, remember most of the standard JS [Object](https://developer.mozil
 Pretty-printing [the public GitHub gists API](https://api.github.com/gists/public) with node instead of `jq`:
 
 ```bash
-$ curl -s 'https://api.github.com/gists/public' | node -p 'JSON.parse(fs.readFileSync(0))'
+curl -s 'https://api.github.com/gists/public' | node -p 'JSON.parse(fs.readFileSync(0))'
 ```
 
-Or doing something less trivial:
+If you're writing a script, consider making a function:
 
 ```bash
-$ curl -s 'https://api.github.com/gists/public' | node -p '
-  JSON.parse(fs.readFileSync(0))
-    .filter(g => g.public)
-    .map(g => g.owner.login + " has " + Object.keys(g.files).length + " files")
-    .join("\n")
+function json-select {
+  node -p "JSON.parse(fs.readFileSync(0))$1" 2> /dev/null # error silently when the selector doesn't match
+}
+```
+
+This makes things nicer to read, and gives you less escaping headaches if you need to capture the output to a variable, for example:
+
+```bash
+curl -s 'https://api.github.com/gists/public' | json-select '[0].owner.repos_url'
+```
+
+And remember that you have the full JavaScript Array/Object API at your disposal:
+
+```bash
+curl -s 'https://api.github.com/gists/public' | json-select '
+  .filter(g => g.public)
+  .map(g => g.owner.login + " has " + Object.keys(g.files).length + " files")
+  .join("\n")
 '
 ```
 
+This would give you somthing like:
+
 ```
-carol00 has 1 files
-Untrusted-Game has 1 files
-wei3hua2 has 1 files
-weicks has 1 files
-wawhal has 1 files
-Jigar1900 has 1 files
-adeweb has 4 files
-kooksee has 1 files
-SimonDev54 has 7 files
-sshnaidm has 1 files
-neutrinog has 1 files
-matthiasbaldi has 1 files
-natthakan159 has 1 files
-Untrusted-Game has 1 files
-hmatsu47 has 3 files
-chocopowwwa has 2 files
-dumbest has 1 files
-Jigar1900 has 1 files
-rtoIedo has 1 files
-rtoIedo has 1 files
-binaryoung has 1 files
-nathan-lapinski has 1 files
-nikita8 has 1 files
-mrdogra007 has 1 files
-anuragambuja has 1 files
-noemi-dresden has 1 files
-RosiAtanasova has 1 files
-PerJoy has 1 files
-mi2428 has 2 files
-OnyxM has 2 files
+imarklee has 1 files
+aarighi has 1 files
+mymizan has 3 files
+Rodge1979 has 1 files
+billyxs has 1 files
+...
 ```
 
 ## How it works
