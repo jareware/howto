@@ -16,7 +16,7 @@ If you're writing a script, consider making a function:
 
 ```bash
 function json-select {
-  node -p "JSON.parse(fs.readFileSync(0))$1" 2> /dev/null # error silently when the selector doesn't match
+  node -p "JSON.parse(fs.readFileSync(0))$1" 2> /dev/null # treat errors as empty values
 }
 ```
 
