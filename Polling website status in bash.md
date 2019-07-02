@@ -11,7 +11,7 @@ function poll_website_status {
   BASE="curl --silent --show-error --location --max-time $SLEEP"
   while true; do
     if [ "$3" == "--title" ]; then # print title as result
-      RESULT="$($BASE $HOST 2>&1 | grep '<title>' | sed 's/ *</</' | cut -c -100)"
+      RESULT="$($BASE $HOST 2>&1 | grep '<title>' | sed 's/[^<]*//' | cut -c -100)"
     else # print HTTP status code as result
       RESULT="$($BASE --output /dev/null --write-out '%{http_code}' $HOST 2>&1 | tr '\n' ' ')"
     fi
