@@ -9,4 +9,4 @@ Writing down things of note after switching from a MacBook Pro (13" 2016) to Len
   * Switch to `Yaru-dark` theme
   * Hide built-in desktop icons
   * Switch touchpad right-click emulation to two-finger-click
-* Install [CopyQ](https://hluk.github.io/CopyQ/), release the global `Win+V` shortcut from Ubuntu's "Keyboard settings", and assign it as the global shortcut for "Show/hide main window"
+* Install [CopyQ](https://hluk.github.io/CopyQ/), release the global `Win+V` shortcut from Ubuntu's "Keyboard settings", and assign it as the global shortcut for "Show/hide main window" in CopyQ
