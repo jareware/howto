@@ -14,3 +14,4 @@ Writing down things of note after switching from a MacBook Pro (13" 2016) to Len
   * Release the global `Win+V` shortcut from Ubuntu's "Keyboard settings", and assign it as the global shortcut for "Show/hide main window" in CopyQ
   * Change its preferences to treat mouse select/paste the same as normal copy/paste
 * After installing Docker with `sudo apt install docker.io`, and `sudo usermod -a -G docker $USER`, no amount of logouts/logins fixed permission errors, but a reboot did. :shrugmoji:
+* The Escape/Caps Lock remap doesn't work in Visual Studio Code without [setting `"keyboard.dispatch": "keyCode"`](https://github.com/microsoft/vscode/issues/23991#issuecomment-292336504)
