@@ -10,8 +10,12 @@ Writing down things of note after switching from a MacBook Pro (13" 2016) to Len
   * Hide built-in desktop icons
   * Switch touchpad right-click emulation to two-finger-click
   * Set Mouse acceleration profile to "Adaptive"
-* Install [CopyQ](https://hluk.github.io/CopyQ/), and:
-  * Release the global `Win+V` shortcut from Ubuntu's "Keyboard settings", and assign it as the global shortcut for "Show/hide main window" in CopyQ
-  * Change its preferences to treat mouse select/paste the same as normal copy/paste
+* ~Install [CopyQ](https://hluk.github.io/CopyQ/), and:~
+  * ~Release the global `Win+V` shortcut from Ubuntu's "Keyboard settings", and assign it as the global shortcut for "Show/hide main window" in CopyQ~
+  * ~Change its preferences to treat mouse select/paste the same as normal copy/paste~
+  * For whatever reason, it seemed impossible to get `Win+V` working in the built-in Terminal, even if it worked in all other apps `¯\_(ツ)_/¯`
+* Install `gpaste`
+  * Set it to synchronize mouse-selects with clipboard
+  * Add custom keyboard shortcut (from Ubuntu's "Keyboard Settings") for `Win+V` to run command `/usr/lib/x86_64-linux-gnu/gpaste/gpaste-ui`(found this by looking at its `/usr/share/applications/org.gnome.GPaste.Ui.desktop` file)
 * After installing Docker with `sudo apt install docker.io`, and `sudo usermod -a -G docker $USER`, no amount of logouts/logins fixed permission errors, but a reboot did. :shrugmoji:
 * The Escape/Caps Lock remap doesn't work in Visual Studio Code without [setting `"keyboard.dispatch": "keyCode"`](https://github.com/microsoft/vscode/issues/23991#issuecomment-292336504)
