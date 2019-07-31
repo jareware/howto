@@ -15,7 +15,8 @@ Writing down things of note after switching from a MacBook Pro (13" 2016) to Len
   * ~Change its preferences to treat mouse select/paste the same as normal copy/paste~
   * For whatever reason, it seemed impossible to get `Win+V` working in the built-in Terminal, even if it worked in all other apps `¯\_(ツ)_/¯`
 * Install `gpaste`
-  * Set it to synchronize mouse-selects with clipboard
+  * ~~Set it to synchronize mouse-selects with clipboard~~ (never mind; this makes working in an IDE pretty unbearable)
   * Add custom keyboard shortcut (from Ubuntu's "Keyboard Settings") for `Win+V` to run command `/usr/lib/x86_64-linux-gnu/gpaste/gpaste-ui`(found this by looking at its `/usr/share/applications/org.gnome.GPaste.Ui.desktop` file)
-* After installing Docker with `sudo apt install docker.io`, and `sudo usermod -a -G docker $USER`, no amount of logouts/logins fixed permission errors, but a reboot did. :shrugmoji:
+  * Use GNOME Tweaks to add GPaste to startup apps, otherwise it won't be recording after a reboot
+* After installing Docker with `sudo apt install docker.io`, and `sudo usermod -a -G docker $USER`, no amount of logouts/logins fixed permission errors, but a reboot did. `¯\_(ツ)_/¯`
 * The Escape/Caps Lock remap doesn't work in Visual Studio Code without [setting `"keyboard.dispatch": "keyCode"`](https://github.com/microsoft/vscode/issues/23991#issuecomment-292336504)
