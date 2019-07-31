@@ -20,3 +20,4 @@ Writing down things of note after switching from a MacBook Pro (13" 2016) to Len
   * Use GNOME Tweaks to add GPaste to startup apps, otherwise it won't be recording after a reboot
 * After installing Docker with `sudo apt install docker.io`, and `sudo usermod -a -G docker $USER`, no amount of logouts/logins fixed permission errors, but a reboot did. `¯\_(ツ)_/¯`
 * The Escape/Caps Lock remap doesn't work in Visual Studio Code without [setting `"keyboard.dispatch": "keyCode"`](https://github.com/microsoft/vscode/issues/23991#issuecomment-292336504)
+* Install [AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher/releases/tag/v1.3.1)
