@@ -23,3 +23,6 @@ Writing down things of note after switching from a MacBook Pro (13" 2016) to Len
 * ~~Install [AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher/releases/tag/v1.3.1)~~
   * DO NOT install it after all. In addition to not managing to create working `.desktop` files for any AppImages I tried, its launcher app seems to break e.g. the [Etcher](https://www.balena.io/etcher/) image so that it gives random errors when trying to flash something.
   * So just use `chmod` and the AppImage file from bash, like a proper Linux user. `¯\_(ツ)_/¯`
+* Install `konsole`
+  * Config files are e.g. `.config/konsolerc` & `.local/share/konsole/DarkPastels.colorscheme`
+  * [Hide menu bar by default](https://unix.stackexchange.com/a/336100)
