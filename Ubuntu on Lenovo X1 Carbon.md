@@ -27,3 +27,4 @@ Writing down things of note after switching from a MacBook Pro (13" 2016) to Len
   * Config files are e.g. `.config/konsolerc` & `.local/share/konsole/DarkPastels.colorscheme`
   * [Hide menu bar by default](https://unix.stackexchange.com/a/336100)
   * [Tab icons can be changed](https://laanwj.github.io/2011/4/7/changing-tab-icons-in-konsole)
+* Install `fdupes` for finding duplicate files (e.g. photos)
