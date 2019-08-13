@@ -28,3 +28,4 @@ Writing down things of note after switching from a MacBook Pro (13" 2016) to Len
   * [Hide menu bar by default](https://unix.stackexchange.com/a/336100)
   * [Tab icons can be changed](https://laanwj.github.io/2011/4/7/changing-tab-icons-in-konsole)
 * Install `fdupes` for finding duplicate files (e.g. photos)
+* [Change the emoji-key to `Ctrl + Alt + E`](https://askubuntu.com/a/1159087) via `ibus-setup`, so it doesn't clash with default VSC keybindings 
