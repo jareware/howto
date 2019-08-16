@@ -27,6 +27,7 @@ Writing down things of note after switching from a MacBook Pro (13" 2016) to Len
   * Config files are e.g. `.config/konsolerc` & `.local/share/konsole/DarkPastels.colorscheme`
   * [Hide menu bar by default](https://unix.stackexchange.com/a/336100)
   * [Tab icons can be changed](https://laanwj.github.io/2011/4/7/changing-tab-icons-in-konsole)
+  * [Try to make links behave sensibly](https://www.reddit.com/r/kde/comments/3qfa1k/is_there_any_way_to_make_kdeopen_not_reasolve/)... unsuccessfully
 * Install `fdupes` for finding duplicate files (e.g. photos)
 * [Change the emoji-key to `Ctrl + Alt + E`](https://askubuntu.com/a/1159087) via `ibus-setup`, so it doesn't clash with default VSC keybindings 
 * [Disable avahi-daemon](https://askubuntu.com/a/339709), so it doesn't spam "Network service discovery disabled. Your current network has a .local domain, which is not recommended and incompatible with the Avahi network service discovery. The service has been disabled." notifications
