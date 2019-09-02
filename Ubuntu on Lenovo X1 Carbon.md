@@ -1,5 +1,28 @@
 # Ubuntu on Lenovo X1 Carbon
 
+## 2nd iteration
+
+* Start from a "Minimal installation" instead
+* Install some software: `sudo apt update && sudo apt install -y gnome-tweak-tool gpaste docker.io konsole fdupes`
+* Swap Esc & Caps Lock: [`dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:swapescape']"`](https://askubuntu.com/questions/363346/how-to-permanently-switch-caps-lock-and-esc)
+* Gnome Tweaks:
+  * Appearance: Switch to `Yaru-dark` theme
+  * Extensions: Hide built-in desktop icons
+  * Keyboard & Mouse: Switch touchpad right-click emulation to two-finger-click
+  * Startup Applications: Firefox, Konsole
+  * Top Bar: Show clock seconds; show week numbers; show battery percentage
+  * Windows: Disable Attach Modal Dialogs
+* Settings: Mouse & Touchpad:
+  * Mouse: Enable Natural Scrolling
+* Settings: Keyboard:
+  * Remove `Super+V` keybinding (will be used for GPaste, to match Windows)
+  * TODO
+* GPaste:
+  * Use GNOME Tweaks to add GPaste to startup apps, otherwise it won't be recording after a reboot
+  * Add custom keyboard shortcut (from Ubuntu's "Keyboard Settings") for `Win+V` to run command `/usr/lib/x86_64-linux-gnu/gpaste/gpaste-ui`(found this by looking at its `/usr/share/applications/org.gnome.GPaste.Ui.desktop` file)
+  
+## 1st iteration
+
 Writing down things of note after switching from a MacBook Pro (13" 2016) to Lenovo X1 Carbon (6th gen, Windows 10/Ubuntu dual boot).
 
 * [Built-in and external displays can have different scaling under Wayland](https://askubuntu.com/a/1029559), so make the switch
