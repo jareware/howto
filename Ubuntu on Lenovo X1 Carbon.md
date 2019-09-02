@@ -31,3 +31,5 @@ Writing down things of note after switching from a MacBook Pro (13" 2016) to Len
 * Install `fdupes` for finding duplicate files (e.g. photos)
 * [Change the emoji-key to `Ctrl + Alt + E`](https://askubuntu.com/a/1159087) via `ibus-setup`, so it doesn't clash with default VSC keybindings 
 * [Disable avahi-daemon](https://askubuntu.com/a/339709), so it doesn't spam "Network service discovery disabled. Your current network has a .local domain, which is not recommended and incompatible with the Avahi network service discovery. The service has been disabled." notifications
+* Switch to KDE
+  * `sudo apt install tasksel && sudo tasksel install kubuntu-desktop`
