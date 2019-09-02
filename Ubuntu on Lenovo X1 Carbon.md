@@ -27,6 +27,8 @@
   * No amount of logouts/logins fixed permission errors, but a reboot did. `¯\_(ツ)_/¯`
 * [Change the emoji-key to `Ctrl + Alt + E`](https://askubuntu.com/a/1159087) via `ibus-setup`, so it doesn't clash with default VSC keybindings 
 * [Disable avahi-daemon](https://askubuntu.com/a/339709), so it doesn't spam "Network service discovery disabled. Your current network has a .local domain, which is not recommended and incompatible with the Avahi network service discovery. The service has been disabled." notifications. That is, set `AVAHI_DAEMON_DETECT_LOCAL=0` in `/etc/default/avahi-daemon`.
+* Dropbox:
+  * https://www.dropbox.com/install-linux
 
 ## 1st iteration
 
