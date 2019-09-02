@@ -3,7 +3,9 @@
 ## 2nd iteration
 
 * Start from a "Minimal installation" instead
-* Install some software: `sudo apt update && sudo apt install -y gnome-tweak-tool gpaste docker.io konsole fdupes`
+  * Encrypt whole disk (obviously)
+  * Choose to log in automatically (because of the above)
+* Install some software: `sudo apt update && sudo apt install -y gnome-tweak-tool gpaste docker.io konsole fdupes vim gimp`
 * Swap Esc & Caps Lock: [`dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:swapescape']"`](https://askubuntu.com/questions/363346/how-to-permanently-switch-caps-lock-and-esc)
 * Gnome Tweaks:
   * Appearance: Switch to `Yaru-dark` theme
@@ -16,11 +18,16 @@
   * Mouse: Enable Natural Scrolling
 * Settings: Keyboard:
   * Remove `Super+V` keybinding (will be used for GPaste, to match Windows)
-  * TODO
+  * "Copy a screenshot of an area to clipboard": `Print`
 * GPaste:
   * Use GNOME Tweaks to add GPaste to startup apps, otherwise it won't be recording after a reboot
   * Add custom keyboard shortcut (from Ubuntu's "Keyboard Settings") for `Win+V` to run command `/usr/lib/x86_64-linux-gnu/gpaste/gpaste-ui`(found this by looking at its `/usr/share/applications/org.gnome.GPaste.Ui.desktop` file)
-  
+* Docker:
+  * `sudo usermod -a -G docker $USER`
+  * No amount of logouts/logins fixed permission errors, but a reboot did. `¯\_(ツ)_/¯`
+* [Change the emoji-key to `Ctrl + Alt + E`](https://askubuntu.com/a/1159087) via `ibus-setup`, so it doesn't clash with default VSC keybindings 
+* [Disable avahi-daemon](https://askubuntu.com/a/339709), so it doesn't spam "Network service discovery disabled. Your current network has a .local domain, which is not recommended and incompatible with the Avahi network service discovery. The service has been disabled." notifications. That is, set `AVAHI_DAEMON_DETECT_LOCAL=0` in `/etc/default/avahi-daemon`.
+
 ## 1st iteration
 
 Writing down things of note after switching from a MacBook Pro (13" 2016) to Lenovo X1 Carbon (6th gen, Windows 10/Ubuntu dual boot).
@@ -54,7 +61,7 @@ Writing down things of note after switching from a MacBook Pro (13" 2016) to Len
 * Install `fdupes` for finding duplicate files (e.g. photos)
 * [Change the emoji-key to `Ctrl + Alt + E`](https://askubuntu.com/a/1159087) via `ibus-setup`, so it doesn't clash with default VSC keybindings 
 * [Disable avahi-daemon](https://askubuntu.com/a/339709), so it doesn't spam "Network service discovery disabled. Your current network has a .local domain, which is not recommended and incompatible with the Avahi network service discovery. The service has been disabled." notifications
-* Switch to KDE
+* ~Switch to KDE~
   * `sudo apt install tasksel && sudo tasksel install kubuntu-desktop`
   * Select `sddm` when prompted
   * Use `sudo dpkg-reconfigure gdm3` to switch back
