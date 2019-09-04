@@ -14,11 +14,16 @@
   * Startup Applications: Firefox, Konsole
   * Top Bar: Show clock seconds; show week numbers; show battery percentage
   * Windows: Disable Attach Modal Dialogs
-* Settings: Mouse & Touchpad:
-  * Mouse: Enable Natural Scrolling
-* Settings: Keyboard:
-  * Remove `Super+V` keybinding (will be used for GPaste, to match Windows)
-  * "Copy a screenshot of an area to clipboard": `Print`
+* Settings:
+  * Mouse & Touchpad:
+    * Mouse: Enable Natural Scrolling
+  * Keyboard:
+    * Remove `Super+V` keybinding (will be used for GPaste, to match Windows)
+    * "Copy a screenshot of an area to clipboard": `Print`
+  * Dock:
+    * Auto-hide the Dock
+  * Notifications:
+    * Disable lock-screen notifications
 * GPaste:
   * Use GNOME Tweaks to add GPaste to startup apps, otherwise it won't be recording after a reboot
   * Add custom keyboard shortcut (from Ubuntu's "Keyboard Settings") for `Win+V` to run command `/usr/lib/x86_64-linux-gnu/gpaste/gpaste-ui`(found this by looking at its `/usr/share/applications/org.gnome.GPaste.Ui.desktop` file)
