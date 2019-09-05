@@ -13,7 +13,7 @@ function poll_website_status {
     if [ "$3" == "--title" ]; then # print title as result
       RESULT="$($BASE $HOST 2>&1 | grep '<title>' | sed 's/[^<]*//' | cut -c -100)"
     else # print HTTP status code as result
-66        RESULT="$($BASE --output /dev/null --write-out '%{http_code}' $HOST 2>&1 | tr '\n' ' ' | sed 's/More details here:.*//')"
+      RESULT="$($BASE --output /dev/null --write-out '%{http_code}' $HOST 2>&1 | tr '\n' ' ' | sed 's/More details here:.*//')"
     fi
     echo "$(date) --> $HOST --> $RESULT"
     sleep "$SLEEP"
