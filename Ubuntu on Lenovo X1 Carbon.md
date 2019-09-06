@@ -39,6 +39,7 @@
   * Link dotfiles from `~/Dropbox/.dotfiles`
 * Node:
   * https://github.com/nvm-sh/nvm#install--update-script
+* Set screen timeout to 30 min: `gsettings set org.gnome.desktop.session idle-delay $((30*60))`
 
 ## 1st iteration
 
