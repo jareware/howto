@@ -17,6 +17,7 @@
 * Settings:
   * Mouse & Touchpad:
     * Mouse: Enable Natural Scrolling
+    * Touchpad: Disable Tap to Click
   * Keyboard:
     * Remove `Super+V` keybinding (will be used for GPaste, to match Windows)
     * "Copy a screenshot of an area to clipboard": `Print`
