@@ -22,6 +22,7 @@
     * Remove `Super+V` keybinding (will be used for GPaste, to match Windows)
     * "Copy a screenshot of an area to clipboard": `Print`
     * "Show the notification list": `Super+N`
+    * "Home folder": `Super+E`
   * Dock:
     * Auto-hide the Dock
   * Notifications:
