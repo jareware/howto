@@ -5,7 +5,7 @@
 * Start from a "Minimal installation" instead
   * Encrypt whole disk (obviously)
   * Choose to log in automatically (because of the above)
-* Install some software: `sudo apt update && sudo apt install -y gnome-tweak-tool gpaste docker.io konsole fdupes vim gimp direnv tig curl adb ffmpeg exiftool graphicsmagick gnome-sushi python3-pip awscli chromium-browser`
+* Install some software: `sudo apt update && sudo apt install -y gnome-tweak-tool gpaste docker.io konsole fdupes vim gimp direnv tig curl adb ffmpeg exiftool graphicsmagick gnome-sushi python3-pip awscli`
 * Swap Esc & Caps Lock: [`dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:swapescape']"`](https://askubuntu.com/questions/363346/how-to-permanently-switch-caps-lock-and-esc)
 * Gnome Tweaks:
   * Appearance: Switch to `Yaru-dark` theme
@@ -43,6 +43,9 @@
 * Node:
   * https://github.com/nvm-sh/nvm#install--update-script
 * Set screen timeout to 30 min: `gsettings set org.gnome.desktop.session idle-delay $((30*60))`
+* Google Chrome:
+  * `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
+  * `sudo dpkg -i google-chrome-stable_current_amd64.deb`
 
 ## 1st iteration
 
