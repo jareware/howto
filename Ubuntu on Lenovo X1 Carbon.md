@@ -30,6 +30,7 @@
 * GPaste:
   * Use GNOME Tweaks to add GPaste to startup apps, otherwise it won't be recording after a reboot
   * Add custom keyboard shortcut (from Ubuntu's "Keyboard Settings") for `Win+V` to run command `/usr/lib/x86_64-linux-gnu/gpaste/gpaste-ui`(found this by looking at its `/usr/share/applications/org.gnome.GPaste.Ui.desktop` file)
+  * If the daemon isn't running (e.g. it hangs on startup, see https://github.com/Keruspe/GPaste/issues/156), `rm -rf .local/share/gpaste` clears history file
 * Docker:
   * `sudo usermod -a -G docker $USER`
   * No amount of logouts/logins fixed permission errors, but a reboot did. `¯\_(ツ)_/¯`
