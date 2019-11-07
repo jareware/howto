@@ -5,7 +5,7 @@
 * Start from a "Minimal installation" instead
   * Encrypt whole disk (obviously)
   * Choose to log in automatically (because of the above)
-* Install some software: `sudo apt update && sudo apt install -y gnome-tweak-tool gpaste docker.io konsole fdupes vim gimp direnv tig curl adb ffmpeg exiftool graphicsmagick gnome-sushi python3-pip awscli kazam vlc virtualbox aha graphviz tree`
+* Install some software: `sudo apt update && sudo apt install -y gnome-tweak-tool gpaste docker.io konsole fdupes vim gimp direnv tig curl adb ffmpeg exiftool graphicsmagick gnome-sushi python3-pip awscli kazam vlc virtualbox aha graphviz tree shotwell`
 * Swap Esc & Caps Lock: [`dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:swapescape']"`](https://askubuntu.com/questions/363346/how-to-permanently-switch-caps-lock-and-esc)
 * Gnome Tweaks:
   * Appearance: Switch to `Yaru-dark` theme
