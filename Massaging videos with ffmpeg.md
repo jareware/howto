@@ -1,5 +1,13 @@
 # Massaging videos with ffmpeg
 
+## Adding titles to MOV files
+
+```bash
+ffmpeg -loglevel quiet -i input.mov -codec copy -metadata title="description" output.mov
+```
+
+Note that while `title` is a supported metadata field in MOV files, [arbitrary fields aren't](https://stackoverflow.com/a/11479066).
+
 ## Losslessly concatenating mp4 files
 
 ```bash
