@@ -1,12 +1,14 @@
-# Massaging videos with ffmpeg
+# Massaging videos from the command line
 
 ## Adding titles to MOV files
 
+Luckily, this works pretty much the same as for images:
+
 ```bash
-ffmpeg -loglevel quiet -i input.mov -codec copy -metadata title="description" output.mov
+exiftool -overwrite_original -Title="My exciting video" input.mov
 ```
 
-Note that while `title` is a supported metadata field in MOV files, [arbitrary fields aren't](https://stackoverflow.com/a/11479066).
+Took me a lot of trial and error to realize [using `ffmpeg` for this](https://stackoverflow.com/a/11479066) isn't wise (it loses a lot of metadata).
 
 ## Losslessly concatenating mp4 files
 
