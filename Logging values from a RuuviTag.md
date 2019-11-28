@@ -147,3 +147,38 @@ read-lines-from-ruuvi \
 You can use more (or less) of the MAC length to identify your tags, as long as they don't collide.
 
 Remember to update the script if you relocate the tags. :)
+
+## Removing erroneous values from InfluxDB
+
+Sometimes you end up with invalid data in InfluxDB; for example, an error in some script caused garbage data to be written, which you want to get rid of.
+
+To remove values from the DB, first check the version of InfluxDB you're running (e.g. with `docker ps`, or whatever you use to run it) and use that to match your CLI version. Note that if your DB is accessible over the internet, you can run the following commands on any host, not just the one running your InfluxDB.
+
+```terminal
+$ read password # read the password into a variable, so it doesn't stick to your shell history
+SECRET
+$ docker run --rm -it influxdb:1.2 influx -host db.example.com -ssl -port 443 -username agent -password "$password" -precision rfc3339 # the "precision" gives you nicer formatting for timestamps
+Connected to https://db.example.com:443 version 1.2.2
+InfluxDB shell version: 1.2.4
+> SHOW DATABASES
+name: databases
+name
+----
+_internal
+ruuvi
+telegraf
+> USE ruuvi
+Using database ruuvi
+> SHOW MEASUREMENTS
+name: measurements
+name
+----
+ruuvitag
+```
+
+You can then use queries like:
+
+* `SHOW SERIES` to see what kind of measurement/tag-combinations the DB has (in case you're interested)
+* `SELECT * FROM ruuvitag WHERE time >= now() - 1m` to see what the most recent RuuviTag data looks like
+* `SELECT * FROM ruuvitag WHERE time >= '2019-07-23T18:31:21Z' AND time <= '2019-07-27T15:00:00Z'` to narrow down the data range you want to get rid of
+* `DELETE FROM ruuvitag WHERE time >= '2019-07-23T21:13:36.589362432Z' AND time <= '2019-07-27T11:58:27.331387442Z'` to perform the actual deletion
