@@ -50,6 +50,10 @@
 * [Fix screen tearing](https://news.ycombinator.com/item?id=21331723):
   * `echo -e 'Section "Device"\n  Identifier "Intel Graphics"\n  Driver "intel"\n  Option "TearFree" "true"\nEndSection' > /etc/X11/xorg.conf.d/20-intel.conf`
   * ...though honestly I'm not yet 100% sure this had any effect
+* [Etcher](https://www.omgubuntu.co.uk/2017/05/how-to-install-etcher-on-ubuntu):
+  * `echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list`
+  * `sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61`
+  * `sudo apt update && sudo apt install balena-etcher-electron`
 
 ## 1st iteration
 
