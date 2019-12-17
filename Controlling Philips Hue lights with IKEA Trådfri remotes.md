@@ -19,7 +19,7 @@ You have:
 1. Install the Hue Essentials app on Android (it seems an iOS version isn't available at the time of writing, so hope you have some old and busted Android phone laying around!)
 1. Reset the Trådfri remote by pressing its internal pairing button 4 times
 1. The remote's LED starts pulsating; you may not actually have to, but I always waited until it stopped pulsating before proceeding
-1. In the Hue Essentials app, go Lights ➜ TODO TODO TODO
+1. In the Hue Essentials app, select "Devices" from the bottom ➜ Plus button ➜ "Light" ➜ "Hue Bridge"; this leaves you in the "Search for lights" screen, and at the very bottom, you should see a Touchlink button
 1. Move the remote very close to the Hue Bridge, and start holding down its internal pairing button
 1. In the Hue Essentials app, press the Touchlink button
 1. You should see the LED on the remote come on, then off (there's no other confirmation as to whether the process worked or not)
