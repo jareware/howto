@@ -54,6 +54,10 @@
   * `echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list`
   * `sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61`
   * `sudo apt update && sudo apt install balena-etcher-electron`
+* [Peek](https://github.com/phw/peek):
+  * At the time of writing, the version in Ubuntu repos [is broken](https://github.com/phw/peek/issues/419), so...
+  * [Install flatpak](https://flatpak.org/setup/Ubuntu/)
+  * `flatpak install flathub com.uploadedlobster.peek`
 
 ## 1st iteration
 
