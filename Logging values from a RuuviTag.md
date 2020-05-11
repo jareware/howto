@@ -72,8 +72,8 @@ PASS=SECRET
 
 while read line
 do
-  echo "$(basename "$0"): $line"
-  curl -XPOST --user "$USER:$PASS" --silent --show-error "$HOST/write?db=$DB" --data-binary "$line"
+  echo -n "$(basename "$0"): $line => "
+  curl -XPOST --user "$USER:$PASS" --silent --show-error -o /dev/null --write-out "%{http_code}" --max-time 10 --retry 10 "$HOST/write?db=$DB" --data-binary "$line"
 done < "${1:-/dev/stdin}"
 ```
 
@@ -89,7 +89,7 @@ Note that the same `send-lines-to-influx` utility can be used to send arbitrary 
 
 ```
 $ echo random_values value=$RANDOM | send-lines-to-influx
-send-lines-to-influx: random_values value=32542
+send-lines-to-influx: random_values value=32542 => 204
 ```
 
 ## Surviving reboots
