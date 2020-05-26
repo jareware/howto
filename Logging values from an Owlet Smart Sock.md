@@ -4,10 +4,10 @@ The [Owlet Smart Sock](https://owletbabycare.co.uk/) monitors a baby's heart rat
 
 ## Reading values
 
-Luckily, [a kind soul on GitHub](https://github.com/mbevand/owlet_monitor) has already solved the hard part: pulling values in real-time from Owlet's API.
+Luckily, [a kind soul on GitHub](https://github.com/mbevand/owlet_monitor) has already solved the hard part: pulling values in real-time from Owlet's API. Clone it, `sudo pip3 install python-jwt gcloud sseclient requests_toolbelt firebase && sudo pip3 install --upgrade google-auth-oauthlib`, and then:
 
 ```bash
-$ OWLET_USER=xxxxxxxxxx OWLET_PASS=xxxxxxxxxx ./owlet_monitor
+$ OWLET_USER=xxxxxxxxxx OWLET_PASS=xxxxxxxxxx OWLET_REGION=europe ./owlet_monitor > owlet_monitor.log
 Logging in
 Auth token xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 Getting DSN
