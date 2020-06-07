@@ -43,6 +43,7 @@
   * Link dotfiles from `~/Dropbox/.dotfiles`
 * Node:
   * https://github.com/nvm-sh/nvm#install--update-script
+  * Using with `sudo`: https://stackoverflow.com/a/40078875
 * Set screen timeout to 30 min: `gsettings set org.gnome.desktop.session idle-delay $((30*60))`
 * Google Chrome:
   * `wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb`
