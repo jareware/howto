@@ -59,6 +59,8 @@
   * At the time of writing, the version in Ubuntu repos [is broken](https://github.com/phw/peek/issues/419), so...
   * [Install flatpak](https://flatpak.org/setup/Ubuntu/)
   * `flatpak install flathub com.uploadedlobster.peek`
+* TeamViewer
+  * [This was needed to fix connection issues](https://community.teamviewer.com/t5/General-Questions/Not-ready-Please-check-your-connection-after-upgrade-to-v12/m-p/12344/highlight/true#M6767), followed by a restart
 
 ## 1st iteration
 
