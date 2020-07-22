@@ -48,14 +48,14 @@ If you need to pass some options to your test runner (e.g. [`--testNamePattern`]
 ```
 $ npm run test-grind -- --testNamePattern=foobar
 
-> @ test-grind /home/jara/projects/futurice/editorial-naviga-plugins
+> @ test-grind /path/to/project
 > run() { set -e; i=0; while i=$((i + 1)); do echo '
 ===>' Test run $i; CI=1 npm test -- "$@"; done; }; run "--testNamePattern=foobar"
 
 
 ===> Test run 1
 
-> @ test /home/jara/projects/futurice/editorial-naviga-plugins
+> @ test /path/to/project
 > echo TODO: Write some tests "--testNamePattern=foobar"
 
 TODO: Write some tests --testNamePattern=foobar
